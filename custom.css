@@ -1,0 +1,46 @@
+/* Override Bootstrap colors */
+.bg-dark {
+  background-color: #222 !important;
+}
+
+.bg-light {
+  background-color: #333 !important;
+}
+
+.bg-primary {
+  background-color: #ffcc00 !important;
+}
+
+.bg-secondary {
+  background-color: #2a273d !important;
+}
+
+.text-primary {
+  color: #eee !important;
+}
+
+.text-dark,
+.navbar-light .navbar-nav .nav-link {
+  color: #222;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.auth-buttons a {
+  background-color: #ffcc00;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.auth-buttons a:hover {
+  background-color: #e6b800;
+}
