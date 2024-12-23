@@ -16,11 +16,19 @@
 }
 
 .bg-secondary {
-  background-color: #2a273d !important;
+  background-color: #3d3a4d !important;
 }
 
 .text-primary {
   color: #eee !important;
+}
+
+.text-small {
+  font-size: 68.75%;
+}
+
+.text-medium {
+  font-size: 75%;
 }
 
 .text-dark,
@@ -41,4 +49,20 @@ button.bg-primary:hover {
 
 .navbar .container {
   max-width: 100% !important;
+}
+
+.img-box {
+  position: relative;
+}
+
+.price-tag {
+  font-size: 200%;
+  color: #ddd;
+  font-weight: bold;
+
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+
+  text-shadow: 0.1rem 0.1em 0.2rem rgba(51, 51, 51, 0.4);
 }

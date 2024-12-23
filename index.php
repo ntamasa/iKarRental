@@ -1,3 +1,11 @@
+<?php
+    require_once 'jsonio.php';
+    require_once 'jsonstorage.php';
+    
+    $storage = new JsonStorage('data/cars.json');
+    $cars = $storage->all();    
+    ?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -59,11 +67,22 @@
         </form>
     </section>
 
-    <section class="catalog"></section>
+    <section class="catalog mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <?php foreach ($cars as $car): ?>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <?php include 'card.php'; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
 </main>
 
 
-<div class="container">
+
+<!-- <div class="container">
     <?php
     // Dynamic content for cars
     $json_data = '[
@@ -82,7 +101,7 @@
         echo '</div>';
     }
     ?>
-</div>
+</div> -->
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

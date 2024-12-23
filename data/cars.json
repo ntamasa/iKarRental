@@ -1,49 +1,56 @@
 {
   "674837110c5375.22198180": {
-    "capacity": "4",
-    "shifter": "automatic",
-    "model": "Nissan Altima",
-    "price": "14500",
+    "image": "skoda-octavia.webp",
+    "capacity": "5",
+    "shifter": "automata",
+    "model": "Skoda Octavia",
+    "price": "11500",
     "_id": "674837110c5375.22198180"
   },
   "6748451e3fa751.72933921": {
-    "capacity": "4",
-    "shifter": "automatic",
-    "model": "Nissan Altima",
-    "price": "14500",
+    "image": "bmw-m3.webp",
+    "capacity": "2",
+    "shifter": "manuális",
+    "model": "BMW M3 E92",
+    "price": "19250",
     "_id": "6748451e3fa751.72933921"
   },
   "6748451fca7205.94212422": {
+    "image": "nissan-altima.webp",
     "capacity": "4",
-    "shifter": "automatic",
+    "shifter": "automata",
     "model": "Nissan Altima",
     "price": "14500",
     "_id": "6748451fca7205.94212422"
   },
   "67484559074907.44751909": {
+    "image": "nissan-altima.webp",
     "capacity": "4",
-    "shifter": "automatic",
+    "shifter": "automata",
     "model": "Nissan Altima",
     "price": "14500",
     "_id": "67484559074907.44751909"
   },
   "6748455f5493b2.87158693": {
+    "image": "nissan-altima.webp",
     "capacity": "4",
-    "shifter": "automatic",
+    "shifter": "automata",
     "model": "Nissan Altima",
     "price": "14500",
     "_id": "6748455f5493b2.87158693"
   },
   "67484565116478.89547528": {
+    "image": "nissan-altima.webp",
     "capacity": "4",
-    "shifter": "automatic",
+    "shifter": "automata",
     "model": "Nissan Altima",
     "price": "14500",
     "_id": "67484565116478.89547528"
   },
   "6748457d9e8ba6.55949461": {
+    "image": "nissan-altima.webp",
     "capacity": "4",
-    "shifter": "automatic",
+    "shifter": "automata",
     "model": "Nissan Altima",
     "price": "14500",
     "_id": "6748457d9e8ba6.55949461"
