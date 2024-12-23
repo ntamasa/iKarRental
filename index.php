@@ -11,37 +11,67 @@
     <link href="custom.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark">
 <?php include 'navigation.php'; ?>
-<header>
-    <h1>Kölcsönözz autókat könnyedén!</h1>
+
+<header class="py-3 px-3">
+    <h1 class="w-50 text-primary mb-4">Kölcsönözz autókat könnyedén!</h1>
+    <a href="register.php" class="text-dark bg-primary font-weight-bold rounded-pill p-2 w-auto inline text-decoration-none">Regisztráció</a>
 </header>
+<main>
+    <section class="filters">
+        <form class="d-flex flex-row justify-content-end align-items-center">
+            <div class="left-side d-flex flex-column justify-content-between w-100">
+                <div class="first-row d-flex justify-content-end mb-2">
+                        <div class="capacity d-flex flex-row align-items-center">
+                            <button class="decrease inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&minus;</button>
+                            <input style="width: 5rem" type="number" value="0" class="text-primary capacity_value inline bg-transparent border border-secondary py-1 mx-2 rounded text-center" name="capacity"/>
+                            <button class="increase inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&plus;</button>
+                            <label for="capacity" class="m-0 ml-2 mr-3 text-primary">férőhely</label>
+                        </div>
+                    <div class="date d-flex flex-row align-items-center">
+                        <input type="date" class="from bg-transparent text-primary rounded border border-light p-1"/>
+                        <label class="text-primary m-0 mr-2">-tól</label>
+                        <input type="date" class="to bg-transparent text-primary rounded border border-light p-1"/>
+                        <label class="text-primary m-0 mr-2">-ig</label>
+                    </div>
+                </div>
 
-<div class="auth-buttons">
-    <a href="#">Bejelentkezés</a>
-    <a href="#">Regisztráció</a>
-</div>
+                <div class="second-row d-flex justify-content-end">
+                    <div class="shifter d-flex flex-row align-items-center mr-3">
+                        <select name="shifter" class="bg-transparent text-primary border border-secondary rounded p-1">
+                            <option value="-" class="bg-dark text-primary ">Váltó típusa</option>
+                            <option value="manual" class="bg-transparent bg-dark text-primary ">Manuális</option>
+                            <option value="automatic" class="bg-transparent bg-dark text-primary ">Automata</option>
+                        </select>
+                    </div>
+                    
+                    <div class="price d-flex flex-row align-items-center">
+                        <input type="number" name="min-price" id="min-price" placeholder="14.0000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;">
+                        <label class="text-primary px-2 m-0">&mdash;</label>
+                        <input type="number" name="max-price" id="max-price" placeholder="21.0000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;">
+                        <label class="text-primary px-2 m-0">Ft</label>
+                    </div>
+                </div>
+            </div>
 
-<div class="filters">
-    <input type="date" name="from" id="from" placeholder="Dátum kezdete">
-    <input type="date" name="to" id="to" placeholder="Dátum vége">
-    <select name="carType" id="carType">
-        <option value="all">Váltó típusa</option>
-        <option value="manual">Manuális</option>
-        <option value="automatic">Automata</option>
-    </select>
-    <input type="number" name="priceRange" id="priceRange" placeholder="Ár (Ft)" min="14000" max="21000" step="500">
-    <button>Szűrés</button>
-</div>
+            <button type="submit" class="mx-5 text-dark bg-primary font-weight-bold rounded-pill px-3 py-2 w-auto inline border border-dark" style="height: max-content;">Szűrés</button>
+        </form>
+    </section>
+
+    <section class="catalog"></section>
+</main>
+
 
 <div class="container">
     <?php
     // Dynamic content for cars
-    $cars = [
-        ['model' => 'Nissan Altima', 'price' => '14.500 Ft', 'seats' => '5 férőhely', 'transmission' => 'automata', 'image' => 'car1.jpg'],
-        ['model' => 'Nissan Altima', 'price' => '14.500 Ft', 'seats' => '5 férőhely', 'transmission' => 'automata', 'image' => 'car2.jpg'],
+    $json_data = '[
+        
         // Add more cars as needed
-    ];
+    ]';
+
+    $cars = json_decode($json_data, true);
 
     foreach ($cars as $car) {
         echo '<div class="car-card">';
