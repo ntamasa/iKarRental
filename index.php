@@ -3,7 +3,9 @@
     require_once 'jsonstorage.php';
     
     $storage = new JsonStorage('data/cars.json');
-    $cars = $storage->all();    
+    $cars = $storage->all();   
+    
+    $filteredCars = [];
     ?>
 
 <!DOCTYPE html>
