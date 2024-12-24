@@ -27,8 +27,8 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 - [ ] 1.0 pont Hitelesítés: A bejelentkezés hibakezeléssel működik
 - [ ] 1.0 pont Hitelesítés: Sikeres bejelentkezés esetén az oldalakon látszódik, hogy be vagyunk jelentkezve
 - [ ] 1.0 pont Kijelentkezés: Profiloldalon és minden oldalon elérhető
-- [ ] 2.0 pont Autóoldal: A kiválasztott autót le tudom foglalni két időpont között, sikeres foglalás esetén a foglalás elmentődik
-- [ ] 1.0 pont Autóoldal: Sikeres és sikertelen foglalás esetén a felhasználó értesítve van, sikeres esetén megjelennek a foglalás és az autó adatai
+- [ X ] 2.0 pont Autóoldal: A kiválasztott autót le tudom foglalni két időpont között, sikeres foglalás esetén a foglalás elmentődik
+- [ X ] 1.0 pont Autóoldal: Sikeres és sikertelen foglalás esetén a felhasználó értesítve van, sikeres esetén megjelennek a foglalás és az autó adatai
 - [ ] 1.0 pont Főoldal: A főoldalon tudunk szűrni a szabad időpontokra is
 - [ ] 1.0 pont Profiloldal: Megjelennek a felhasználó korábbi foglalásai
 - [ ] 1.0 pont Admin: Az admin bejelentkezése esetén a profil oldalán megjelenik az összes foglalás, ezek a foglalások törölhetőek
