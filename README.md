@@ -18,7 +18,7 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 - [ X ] 1.0 pont Főoldal: az összes autó és a hozzájuk tartozó alapadatok kilistázódnak
 - [ X ] 1.0 pont Főoldal: az autó kártyájára/nevére kattintva a megfelelő autó aloldalára jutunk
 - [ X ] 1.0 pont Autóoldal: Megjelennek az autó adatai és képe
-- [ ] 1.0 pont Főoldal: A főoldalon a feladatban meghatározott elemekre - kivéve a szabad időpontokra - sikeresen tudunk szűrni
+- [ X ] 1.0 pont Főoldal: A főoldalon a feladatban meghatározott elemekre - kivéve a szabad időpontokra - sikeresen tudunk szűrni
 - [ ] 2.0 pont Admin: Új autót tudunk létrehozni hibakezeléssel, és sikeresen menti megfelelő adatok esetén. (Ehhez bejelentkezni nem szükséges)
 
 ### Az alap feladatok (14 pont)
@@ -29,7 +29,7 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 - [ ] 1.0 pont Kijelentkezés: Profiloldalon és minden oldalon elérhető
 - [ X ] 2.0 pont Autóoldal: A kiválasztott autót le tudom foglalni két időpont között, sikeres foglalás esetén a foglalás elmentődik
 - [ X ] 1.0 pont Autóoldal: Sikeres és sikertelen foglalás esetén a felhasználó értesítve van, sikeres esetén megjelennek a foglalás és az autó adatai
-- [ ] 1.0 pont Főoldal: A főoldalon tudunk szűrni a szabad időpontokra is
+- [ X ] 1.0 pont Főoldal: A főoldalon tudunk szűrni a szabad időpontokra is
 - [ ] 1.0 pont Profiloldal: Megjelennek a felhasználó korábbi foglalásai
 - [ ] 1.0 pont Admin: Az admin bejelentkezése esetén a profil oldalán megjelenik az összes foglalás, ezek a foglalások törölhetőek
 - [ ] 1.0 pont Admin: Autók adatainak módosítása (hibakezeléssel)

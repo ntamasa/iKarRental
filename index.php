@@ -15,7 +15,7 @@
             header('Location: index.php');
             exit;
         }
-        
+
         $filteredCars = $cars;
         if (isset($_GET['capacity']) && $_GET['capacity'] !== '0') {
             $capacity = intval($_GET['capacity']);
@@ -145,29 +145,6 @@
         </div>
     </section>
 </main>
-
-
-
-<!-- <div class="container">
-    <?php
-    // Dynamic content for cars
-    $json_data = '[
-        
-        // Add more cars as needed
-    ]';
-
-    $cars = json_decode($json_data, true);
-
-    foreach ($cars as $car) {
-        echo '<div class="car-card">';
-        echo '<img src="' . $car['image'] . '" alt="' . $car['model'] . '">';
-        echo '<div class="price">' . $car['price'] . '</div>';
-        echo '<div class="details">' . $car['model'] . '<br>' . $car['seats'] . ' - ' . $car['transmission'] . '</div>';
-        echo '<button class="booking-btn">Foglalás</button>';
-        echo '</div>';
-    }
-    ?>
-</div> -->
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
