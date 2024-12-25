@@ -14,7 +14,7 @@
         <?php if(count($reservation) < 1): ?>
             <label class="price-tag m-0"><?php echo $price ?> Ft</label>
         <?php else: ?>
-            <label class="res-date m-0"><?php echo $reservation["from"]?> &mdash; <?php echo $reservation["to"] ?></label>
+            <label class="res-date m-0"><?php echo $reservation["from"]?>&dash;<?php echo $reservation["to"] ?></label>
         <?php endif; ?>
     </div>
     <div class="card-body d-flex flex-row justify-content-between align-items-center w-100 p-2">

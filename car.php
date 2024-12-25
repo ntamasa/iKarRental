@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if ($selected_start >= $reservation_start && $selected_start <= $reservation_end) {
                         $error = "foglalt";
+                        header('Location: alert.php?id='. $car_id . "&status=failed" . "&model=" . $car["model"] . "&brand=" . $car["brand"] . "&from=" . $startDate . "&to=" . $endDate);
                         break;
                     }
 
