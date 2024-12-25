@@ -1,25 +1,24 @@
-<?php 
-    session_start();
-    require_once "jsonstorage.php";
-    require_once "jsonio.php";
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    require_once "auth.php";
+
+    $auth = new Auth();
+    $error = '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $storage = new JsonStorage('data/users.json');
-        $users = $storage->all();
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
 
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        $user = new User($email, $password);
-
-        $filteredUsers = array_filter($users, function ($u) use ($user) {
-            return $u->getEmail() === $user->getEmail() && $u->getPassword() === $user->getPassword();
-        });
-
-        if (count($filteredUsers) === 1) {
-            $_SESSION['user'] = $user;
-            header('Location: index.php');
-            exit;
+        $user = $auth->check_credentials($email, $password);
+        if ($user) {
+            $auth->login($user);
+            header("Location: index.php");
+            exit();
+        } else {
+            $errors = "Hibás e-mail cím vagy jelszó!";
         }
     }
 ?>
@@ -48,12 +47,18 @@
             </div>
 
             <div>
-                <label for="password" class="text-primary block mb-0">E-mail cím</label>
+                <label for="password" class="text-primary block mb-0">Jelszó</label>
                 <input type="password" name="password" id="password" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********" required>
             </div>
 
             <button type="submit" class="text-dark align-self-end bg-primary font-weight-bold rounded-pill py-2 px-3 w-auto border border-dark">Belépés</button>
             </form>
+
+            <?php if ($error): ?>
+                <div class="alert alert-danger mt-5" role="alert">
+                    <?php echo $error; ?>
+                </div>
+            <?php endif; ?>
     </main>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -1,14 +1,16 @@
-[
-  {
-    "username": "admin",
-    "password": "admin",
-    "email": "admin@admin.com",
-    "role": "admin"
+{
+  "676ae1b08af6f5.78442131": {
+    "full_name": "admin",
+    "email": "admin@ikarrental.net",
+    "password": "$2y$12$9WY5sW7Z6sri2aXvJit59.ZbI74AjSJtbiRpkJHt0ul4QLUQHXyO.",
+    "role": "admin",
+    "_id": "676ae1b08af6f5.78442131"
   },
-  {
-    "username": "test1",
-    "password": "test1",
+  "676ae20346f4d8.15838645": {
+    "full_name": "test1",
     "email": "test1@gmail.com",
-    "role": "user"
+    "password": "$2y$12$an7Q7DpPHxuEBslml6Aq2ur1sIDW9G3lZJimOXHQj05BM6KOiArkK",
+    "role": "user",
+    "_id": "676ae20346f4d8.15838645"
   }
-]
+}

@@ -1,6 +1,9 @@
 <?php
     session_start();
-    session_destroy();
-    header('Location: index.php');
-    exit;
+    require_once "auth.php";
+
+    $auth = new Auth();
+    $auth->logout();
+    header("Location: login.php");
+    exit();
 ?>

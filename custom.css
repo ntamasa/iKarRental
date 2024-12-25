@@ -47,6 +47,10 @@
   font-size: 3.6rem !important;
 }
 
+.profile-pic {
+  height: 2rem;
+}
+
 .text-dark,
 .navbar-light .navbar-nav .nav-link .text-dark,
 a.text-dark:hover,

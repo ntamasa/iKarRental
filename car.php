@@ -1,10 +1,20 @@
 <?php
 session_start();
+require_once "auth.php";
+
+$auth = new Auth();
+if (!$auth->is_authenticated()) {
+    header("Location: login.php");
+    exit();
+}
+
 require_once 'jsonio.php';
 require_once 'jsonstorage.php';
 
 $storage = new JsonStorage('data/cars.json');
 $cars = $storage->all();
+
+$user_email = $_SESSION['user']['email'] ?? null;
 
 $car_id = $_GET['id'] ?? null;
 $car = null;
@@ -85,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $new_reservation = [
                     'from' => $startDate,
                     'to' => $endDate,
-                    'user_email' => 'test1@gmail.com', // Replace with the actual user's email
+                    'user_email' => $user_email, // Replace with the actual user's email
                     'car_id' => $car['id']
                 ];
                 $reservation_storage->insert((object)$new_reservation);
