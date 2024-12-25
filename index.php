@@ -60,6 +60,7 @@
         }
     }
 
+    $reservation = [];
     ?>
 
 <!DOCTYPE html>

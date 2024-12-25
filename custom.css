@@ -51,6 +51,10 @@
   height: 2rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .text-dark,
 .navbar-light .navbar-nav .nav-link .text-dark,
 a.text-dark:hover,
@@ -87,7 +91,8 @@ button.bg-primary:hover {
   position: relative;
 }
 
-.price-tag {
+.price-tag,
+.res-date {
   font-size: 200%;
   color: #ddd;
   font-weight: bold;
