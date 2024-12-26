@@ -5,9 +5,6 @@
 
 
     $price = floor($car["daily_price_huf"]/1000) . '.' . ($car["daily_price_huf"]%1000 == 0 ? '000' : $car["daily_price_huf"]%1000);
-
-    // delete car for admins
-   
 ?>
 
 <div class="rounded d-flex flex-column align-items-center justify-content-center bg-secondary overflow-hidden">

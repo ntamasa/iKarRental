@@ -33,6 +33,18 @@ class JsonStorage
         }
         return false;
     }
+    public function update(string $id, array $data): bool
+    {
+        $all = $this->all();
+        if (isset($all[$id])) {
+            foreach ($data as $key => $value) {
+                $all[$id][$key] = $value; // Update array element
+            }
+            $this->io->save_to_file($this->filename, $all);
+            return true;
+        }
+        return false;
+    }
     public function filter(callable $fn)
     {
         $all = $this->all();
