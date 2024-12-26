@@ -82,7 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <section class="mb-5">
                 <form method="post" novalidate>
-                    <h2 class="text-primary mb-4">Új autó hozzáadása 🚗</h2>
+                    <h2 class="text-primary mb-4">
+                            <strong><?php echo $car["brand"] . " " . $car["model"] ?></strong> autó módosítása
+                    </h2>
 
                     <div class="row">
                         <div class="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">

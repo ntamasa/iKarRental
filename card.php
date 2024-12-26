@@ -16,9 +16,12 @@
                 <?php else: ?>
                     <input type="hidden" name="car_id" value="<?php echo htmlspecialchars($car["_id"]); ?>">
                 <?php endif; ?>
-
+                
                 <button name="delete" type="submit" class="btn-del bg-danger text-primary rounded py-1 px-2 border border-dark">Törlés</button>
-                <a href="modify.php?id=<?php echo $car["_id"] ?>" class="btn-modify bg-lightest text-dark rounded py-1 px-2 border border-dark">Szerkeszt</a>
+
+                <?php if (empty($reservation)): ?>
+                    <a href="modify.php?id=<?php echo $car["_id"] ?>" class="btn-modify bg-lightest text-dark rounded py-1 px-2 border border-dark">Szerkeszt</a>
+                <?php endif; ?>
             </form>
         <?php endif; ?>
         

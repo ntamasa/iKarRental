@@ -8,19 +8,27 @@
     $error = '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $full_name = $_POST['full-name'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-        $password_again = $_POST['password-again'] ?? '';
+        if (isset($_POST['full-name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password-again'])) {
+            if (empty($_POST['full-name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['password-again'])) {
+                $error = 'Kérjük, töltse ki az összes mezőt!';
+            } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $error = 'Érvénytelen e-mail formátum!';
+            } else {
+                $full_name = $_POST['full-name'] ?? '';
+                $email = $_POST['email'] ?? '';
+                $password = $_POST['password'] ?? '';
+                $password_again = $_POST['password-again'] ?? '';
 
-        if ($password !== $password_again) {
-            $error = "Nem megegyező jelszavak!";
-        } elseif ($auth->user_exists($email)) {
-            $error = "Foglalt E-mail cím!";
-        } else {
-            $auth->register(['full_name' => $full_name,'email' => $email, 'password' => $password, 'role' => 'user']);
-            header("Location: login.php");
-            exit();
+                if ($password !== $password_again) {
+                    $error = "Nem megegyező jelszavak!";
+                } elseif ($auth->user_exists($email)) {
+                    $error = "Foglalt E-mail cím!";
+                } else {
+                    $auth->register(['full_name' => $full_name,'email' => $email, 'password' => $password, 'role' => 'user']);
+                    header("Location: login.php");
+                    exit();
+                }
+            }
         }
     }
 ?>
@@ -42,25 +50,25 @@
 
     <main class="d-flex flex-column justify-content-between align-items-center my-5 h-50">
         <h1 class="text-primary text-huge m-0">Belépés</h1>
-        <form method="post" class="w-50 d-flex flex-column">
+        <form method="post" novalidate class="w-50 d-flex flex-column">
             <div>
                 <label for="full-name" class="text-primary block mb-0">Teljes név</label>
-                <input type="text" name="full-name" id="full-name" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="Gipsz Jakab" required>
+                <input type="text" name="full-name" id="full-name" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="Gipsz Jakab">
             </div>
 
             <div>
                 <label for="email" class="text-primary block mb-0">E-mail cím</label>
-                <input type="email" name="email" id="email" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="jakab.gipsz@ikarrental.net" required>
+                <input type="email" name="email" id="email" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="jakab.gipsz@ikarrental.net">
             </div>
 
             <div>
                 <label for="password" class="text-primary block mb-0">Jelszó</label>
-                <input type="password" name="password" id="password" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********" required>
+                <input type="password" name="password" id="password" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********">
             </div>
 
             <div>
                 <label for="password-again" class="text-primary block mb-0">Jelszó mégegyszer</label>
-                <input type="password" name="password-again" id="password-again" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********" required>
+                <input type="password" name="password-again" id="password-again" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********">
             </div>
 
             <button type="submit" class="text-dark align-self-start bg-primary font-weight-bold rounded-pill py-2 px-3 w-auto border border-dark">Regisztráció</button>

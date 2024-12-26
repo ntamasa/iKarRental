@@ -40,12 +40,13 @@ $filtered_reservations = array_filter($reservations, function($reservation) use 
     return $reservation['car_id'] == $car['_id'];
 });
 
-// validation of the date picking modal
 $error = '';
 $startDate = $_SESSION['startDate'] ?? '';
 $endDate = $_SESSION['endDate'] ?? '';
 
+// form validation
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // validation of the date picking modal
     if (isset($_POST['action']) && $_POST['action'] === 'save_dates') {
         $startDate = $_POST['startDate'] ?? '';
         $endDate = $_POST['endDate'] ?? '';
@@ -57,10 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif (date('Y-m-d') > $startDate) {
             $error = 'A kezdő dátum legkorábban a mai nap.';  
         } else {
-            // Dates are valid, store them in the session
             $_SESSION['startDate'] = $startDate;
             $_SESSION['endDate'] = $endDate;
         }
+        
+    // validation of the reservation
     } elseif (isset($_POST['action']) && $_POST['action'] === 'reserve') {
         $startDate = $_SESSION['startDate'] ?? '';
         $endDate = $_SESSION['endDate'] ?? '';
@@ -96,20 +98,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $new_reservation = [
                     'from' => $startDate,
                     'to' => $endDate,
-                    'user_email' => $user_email, // Replace with the actual user's email
+                    'user_email' => $user_email,
                     'car_id' => $car['_id']
                 ];
                 $reservation_storage->insert((object)$new_reservation);
 
-                // Show a success message
                 $success_message = 'Foglalás sikeres!';
                 header('Location: alert.php?id='. $car_id . "&status=success" . "&model=" . $car["model"] . "&brand=" . $car["brand"] . "&from=" . $startDate . "&to=" . $endDate);
 
-                // Clear the session dates
                 unset($_SESSION['startDate']);
                 unset($_SESSION['endDate']);
-
-                
             }
         }
     }
@@ -157,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="btn-box d-flex flex-row justify-content-around">
                         <button class="date-picker rounded-pill bg-tertiary font-weight-bold border border-dark p-2" data-toggle="modal" data-target="#datePickerModal">Dátum kiválasztása</button>
-                        <form id="reserveForm" action="" method="post" class="m-0">
+                        <form id="reserveForm" novalidate method="post" class="m-0">
                             <input type="hidden" name="action" value="reserve">
                             <input type="hidden" name="startDate" value="<?php echo htmlspecialchars($startDate ?? ''); ?>">
                             <input type="hidden" name="endDate" value="<?php echo htmlspecialchars($endDate ?? ''); ?>">
@@ -183,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form novalidate method="post">
                         <input type="hidden" name="action" value="save_dates">
                         <div class="form-group">
                             <label for="startDate">Kezdő dátum</label>

@@ -21,6 +21,7 @@
 
     $filteredCars = $cars;
     
+    // filter validation
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (isset($_GET['reset'])) {
             header('Location: index.php');
@@ -105,7 +106,7 @@
 
 <main>
     <section class="filters">
-        <form method="get" class="d-flex flex-row justify-content-end align-items-center">
+        <form method="get" novalidate class="d-flex flex-row justify-content-end align-items-center">
             <div class="left-side d-flex flex-column justify-content-between w-100">
                 <div class="first-row d-flex justify-content-end mb-2">
                         <div class="capacity d-flex flex-row align-items-center">

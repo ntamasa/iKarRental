@@ -2,24 +2,31 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    
+
     require_once "auth.php";
 
     $auth = new Auth();
     $error = '';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            if (empty($_POST['email']) || empty($_POST['password'])) {
+                $error = 'Kérjük, töltse ki mindkét mezőt!';
+            } else {
+                $email = $_POST['email'] ?? '';
+                $password = $_POST['password'] ?? '';
 
-        $user = $auth->check_credentials($email, $password);
-        if ($user) {
-            $auth->login($user);
-            header("Location: index.php");
-            exit();
-        } else {
-            $errors = "Hibás e-mail cím vagy jelszó!";
+                $user = $auth->check_credentials($email, $password);
+                if ($user) {
+                    $auth->login($user);
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error = "Hibás e-mail cím vagy jelszó!";
+                }
+            }
         }
+        
     }
 ?>
 
@@ -40,15 +47,15 @@
 
     <main class="d-flex flex-column justify-content-between align-items-center my-5 h-50">
         <h1 class="text-primary text-huge m-0">Belépés</h1>
-        <form method="post" class="w-50 d-flex flex-column">
+        <form method="post" novalidate class="w-50 d-flex flex-column">
             <div>
                 <label for="email" class="text-primary block mb-0">E-mail cím</label>
-                <input type="email" name="email" id="email" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="jakab.gipsz@ikarrental.net" required>
+                <input type="email" name="email" id="email" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="jakab.gipsz@ikarrental.net" >
             </div>
 
             <div>
                 <label for="password" class="text-primary block mb-0">Jelszó</label>
-                <input type="password" name="password" id="password" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********" required>
+                <input type="password" name="password" id="password" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="********" >
             </div>
 
             <button type="submit" class="text-dark align-self-end bg-primary font-weight-bold rounded-pill py-2 px-3 w-auto border border-dark">Belépés</button>
