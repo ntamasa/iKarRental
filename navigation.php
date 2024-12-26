@@ -13,9 +13,13 @@
         <a href="index.php" class="navbar-brand text-primary">iKarRental</a>
 
         <?php if ($auth->is_authenticated()): ?>
-            <a href="profile.php" class="nav-item">
-                <img src="/assets/profile_pic.jpg" alt="Profilkép" class="profile-pic rounded-circle">
-            </a>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="logout.php" class="text-dark bg-primary font-weight-bold rounded-pill p-2 w-auto inline text-decoration-none mr-3">Kijelentkezés</a>
+                <a href="profile.php" class="nav-item">
+                    <img src="/assets/profile_pic.jpg" alt="Profilkép" class="profile-pic rounded-circle">
+                </a>
+            </div>
+
         <?php else: ?>
             <ul class="navbar-nav ml-auto d-flex flex-row align-items-center">
                 <li class="nav-item font-weight-bold">

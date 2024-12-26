@@ -119,8 +119,7 @@
         <img src="/assets/profile_pic.jpg" alt="Profilkép"  class="rounded" style="height: 20rem;"/>
         <div class="d-flex flex-column align-items-start justify-content-center pl-5">
             <p class="m-0">Bejelentkezve, mint</p>
-            <h2 class="m-0 mb-5 text-large"><?php echo $full_name ?></h2>
-            <a href="logout.php" class="text-dark bg-primary font-weight-bold rounded-pill p-2 w-auto inline text-decoration-none">Kijelentkezés</a>
+            <h2 class="m-0 text-large"><?php echo $full_name ?></h2>
         </div>
 
     </header>
