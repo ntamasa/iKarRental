@@ -25,7 +25,7 @@
                 <li class="nav-item font-weight-bold">
                     <a href="login.php" class="nav-link text-primary">Bejelenkezés</a>
                 </li>
-                <li class="nav-item text-dark bg-primary font-weight-bold rounded-pill p-2">
+                <li class="nav-item text-dark bg-primary font-weight-bold rounded-pill p-2 ml-2">
                     <a href="register.php" class="nav-link">Regisztráció</a>
                 </li>
             </ul>

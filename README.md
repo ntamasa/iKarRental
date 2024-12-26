@@ -14,7 +14,7 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 
 ### Minimálisan teljesítendő (enélkül nem fogadjuk el, 6 pont)
 
-- [ ] 0.0 pont Readme.md fájl: kitöltve, feltöltve
+- [ X ] 0.0 pont Readme.md fájl: kitöltve, feltöltve
 - [ X ] 1.0 pont Főoldal: az összes autó és a hozzájuk tartozó alapadatok kilistázódnak
 - [ X ] 1.0 pont Főoldal: az autó kártyájára/nevére kattintva a megfelelő autó aloldalára jutunk
 - [ X ] 1.0 pont Autóoldal: Megjelennek az autó adatai és képe
@@ -23,8 +23,8 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 
 ### Az alap feladatok (14 pont)
 
-- [ ] 1.0 pont Hitelesítés: A regisztráció hibakezeléssel működik TODO novalidate
-- [ ] 1.0 pont Hitelesítés: A bejelentkezés hibakezeléssel működik TODO novalidate
+- [ X ] 1.0 pont Hitelesítés: A regisztráció hibakezeléssel működik
+- [ X ] 1.0 pont Hitelesítés: A bejelentkezés hibakezeléssel működik
 - [ X ] 1.0 pont Hitelesítés: Sikeres bejelentkezés esetén az oldalakon látszódik, hogy be vagyunk jelentkezve
 - [ X ] 1.0 pont Kijelentkezés: Profiloldalon és minden oldalon elérhető
 - [ X ] 2.0 pont Autóoldal: A kiválasztott autót le tudom foglalni két időpont között, sikeres foglalás esetén a foglalás elmentődik
@@ -34,7 +34,7 @@ ELTE Hallgatói Követelményrendszer, IK kari különös rész, 377/A. §: "Az 
 - [ X ] 1.0 pont Admin: Az admin bejelentkezése esetén a profil oldalán megjelenik az összes foglalás, ezek a foglalások törölhetőek
 - [ X ] 1.0 pont Admin: Autók adatainak módosítása (hibakezeléssel)
 - [ X ] 1.0 pont Admin: Autók törlése
-- [ ] 2.0 pont Megjelenés: Igényes, mobilbarát megjelenés
+- [ X ] 2.0 pont Megjelenés: Igényes, mobilbarát megjelenés
 
 ### Plusz feladatok (max plusz 5 pont)
 

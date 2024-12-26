@@ -105,47 +105,51 @@
 </header>
 
 <main>
-    <section class="filters">
-        <form method="get" novalidate class="d-flex flex-row justify-content-end align-items-center">
-            <div class="left-side d-flex flex-column justify-content-between w-100">
-                <div class="first-row d-flex justify-content-end mb-2">
-                        <div class="capacity d-flex flex-row align-items-center">
-                            <button class="decrease inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&minus;</button>
-                            <input style="width: 5rem" type="number" class="text-primary capacity_value inline bg-transparent border border-secondary py-1 mx-2 rounded text-center" name="capacity" value="<?php echo htmlspecialchars($_GET['capacity'] ?? '0'); ?>"/>
-                            <button class="increase inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&plus;</button>
-                            <label for="capacity" class="m-0 ml-2 mr-3 text-primary">férőhely</label>
-                        </div>
-                    <div class="date d-flex flex-row align-items-center">
-                        <input type="date" class="from bg-transparent text-primary rounded border border-light p-1" name="startDate" value="<?php echo htmlspecialchars($_GET['startDate'] ?? ''); ?>"/>
-                        <label class="text-primary m-0 mr-2">-tól</label>
-                        <input type="date" class="to bg-transparent text-primary rounded border border-light p-1" name="endDate" value="<?php echo htmlspecialchars($_GET['endDate'] ?? ''); ?>"/>
-                        <label class="text-primary m-0 mr-2">-ig</label>
-                    </div>
-                </div>
+    <section class="filters mx-3">
+        <form method="get" novalidate class="filters-form">
+            <div class="capacity">
+                <button class="decrease inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&minus;</button>
+                <input style="width: 5rem" type="number" class="text-primary capacity_value inline bg-transparent border border-secondary py-1 mx-2 rounded text-center" name="capacity" value="<?php echo htmlspecialchars($_GET['capacity'] ?? '0'); ?>"/>
+                <button class="increase inline rounded border border-secondary bg-transparent py-1 px-2 text-secondary">&plus;</button>
+                <label for="capacity" class="m-0 ml-2 mr-3 text-primary">férőhely</label>
+            </div>    
 
-                <div class="second-row d-flex justify-content-end">
-                    <div class="shifter d-flex flex-row align-items-center mr-3">
-                        <select name="shifter" class="bg-transparent text-primary border border-secondary rounded p-1">
-                            <option value="-" class="bg-dark text-primary ">Váltó típusa</option>
-                            <option value="manual" class="bg-transparent bg-dark text-primary " <?php echo (isset($_GET['shifter']) && $_GET['shifter'] === 'manual') ? 'selected' : ''; ?>>Manuális</option>
-                            <option value="automatic" class="bg-transparent bg-dark text-primary " <?php echo (isset($_GET['shifter']) && $_GET['shifter'] === 'automatic') ? 'selected' : ''; ?>>Automata</option>
-                        </select>
-                    </div>
-                    
-                    <div class="price d-flex flex-row align-items-center">
-                        <input type="number" name="min-price" id="min-price" placeholder="14.0000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;" value="<?php echo htmlspecialchars($_GET['min-price'] ?? ''); ?>">
-                        <label class="text-primary px-2 m-0">&mdash;</label>
-                        <input type="number" name="max-price" id="max-price" placeholder="21.000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;" value="<?php echo htmlspecialchars($_GET['max-price'] ?? ''); ?>">
-                        <label class="text-primary px-2 m-0">Ft</label>
-                    </div>
+            <div class="date">
+                <div>
+                    <input type="date" class="from bg-transparent text-primary rounded border border-light p-1" name="startDate" value="<?php echo htmlspecialchars($_GET['startDate'] ?? ''); ?>"/>
+                    <label class="text-primary m-0 mr-2">-tól</label>
+                </div>
+                <div>
+                    <input type="date" class="to bg-transparent text-primary rounded border border-light p-1" name="endDate" value="<?php echo htmlspecialchars($_GET['endDate'] ?? ''); ?>"/>
+                    <label class="text-primary m-0 mr-2">-ig</label>
                 </div>
             </div>
 
-            <div class="btn-box d-flex flex-column justify-content-around align-items-center">
-                <button type="submit" class="mx-5 text-dark bg-primary font-weight-bold rounded-pill px-3 py-2 w-auto inline border border-dark" style="height: max-content;">Szűrés</button>
-                <button type="submit" name="reset" class="text-dark bg-primary font-weight-bold rounded-pill px-3 py-2 w-auto inline border border-dark m-0" style="height: max-content;">Szűrők törlése</button>
+            <div class="shifter">
+                <select name="shifter" class="bg-transparent text-primary border border-secondary rounded p-1">
+                    <option value="-" class="bg-dark text-primary ">Váltó típusa</option>
+                    <option value="manual" class="bg-transparent bg-dark text-primary " <?php echo (isset($_GET['shifter']) && $_GET['shifter'] === 'manual') ? 'selected' : ''; ?>>Manuális</option>
+                    <option value="automatic" class="bg-transparent bg-dark text-primary " <?php echo (isset($_GET['shifter']) && $_GET['shifter'] === 'automatic') ? 'selected' : ''; ?>>Automata</option>
+                </select>
             </div>
-            </form>
+
+            <div class="price-range">
+                <input type="number" name="min-price" id="min-price" placeholder="14.0000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;" value="<?php echo htmlspecialchars($_GET['min-price'] ?? ''); ?>">
+                <label class="text-primary px-2 m-0">&mdash;</label>
+                <input type="number" name="max-price" id="max-price" placeholder="21.000" class="bg-transparent border border-secondary text-primary rounded py-1 px-2 text-center" style="width: 6rem;" value="<?php echo htmlspecialchars($_GET['max-price'] ?? ''); ?>">
+                <label class="text-primary px-2 m-0">Ft</label>
+            </div>
+
+            <div class="btn-box align-items-center justify-content-between">
+                <div class="">
+                    <button type="submit" class="text-dark bg-primary font-weight-bold rounded-pill px-3 py-2 w-auto inline border border-dark" style="height: max-content;">Szűrés</button>
+                </div>
+                
+                <div class="">
+                    <button type="submit" name="reset" class="text-dark bg-primary font-weight-bold rounded-pill px-3 py-2 w-auto inline border border-dark m-0" style="height: max-content;">Szűrők törlése</button>
+                </div>
+            </div>
+        </form>
     </section>
 
     <section class="catalog mt-5">

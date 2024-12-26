@@ -115,16 +115,16 @@
 <body class="bg-dark">
     <?php include 'navigation.php' ?>    
 
-    <header class="text-primary d-flex align-items-center h-25" style="padding: 5rem 12.5rem;" >
-        <img src="/assets/profile_pic.jpg" alt="Profilkép"  class="rounded" style="height: 20rem;"/>
-        <div class="d-flex flex-column align-items-start justify-content-center pl-5">
+    <header class="profile-header text-primary h-25">
+        <img src="/assets/profile_pic.jpg" alt="Profilkép"  class="rounded" />
+        <div class="d-flex flex-column align-items-start justify-content-center">
             <p class="m-0">Bejelentkezve, mint</p>
             <h2 class="m-0 text-large"><?php echo $full_name ?></h2>
         </div>
 
     </header>
 
-    <main class="" style="padding: 5rem 12.5rem; padding-top: 0;">
+    <main class="profile">
         <?php if ($role === 'admin'): ?>
             <section class="mb-5">
                 <form method="post" novalidate>

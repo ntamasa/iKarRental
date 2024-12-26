@@ -134,12 +134,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h1 class="align-self-end text-primary text-huge"><?php echo $car["brand"]?> <strong><?php echo $car["model"] ?></strong></h1>
 
-        <div class="car-detail-box d-flex flex-row justify-content-between w-100">
-            <div class="img-box w-49 overflow-hidden">
+        <div class="car-detail-box  w-100 row">
+            <div class="img-box w-49 overflow-hidden col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                 <img src="<?php echo $car["image"] ?>" alt="<?php $car["brand"] . $car["model"]?>" class="w-100 rounded">
             </div>
-            <div class="d-flex flex-column justify-content-between w-49">
-                <div class="bg-light h-75 text-primary rounded pt-3 px-3 d-flex flex-column justify-content-between">
+            <div class="d-flex flex-column justify-content-between w-49 col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="car-details bg-light text-primary rounded pt-3 px-3 d-flex flex-column justify-content-between">
                     <div class="details-box d-flex flex-column justify-content-between font-weight-bold h-100">
                         <div class="details d-flex flex-row justify-content-between">
                             <div class="left"><p>Üzemanyag: <?php echo $car["fuel_type"] ?></p>
@@ -164,11 +164,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
-            <?php if ($error): ?>
-                <div class="alert alert-danger mt-5" role="alert">
-                    <?php echo $error; ?>
-                </div>
-            <?php endif; ?>
+
+        <?php if ($error): ?>
+            <div class="alert alert-danger mt-5 " role="alert">
+                <?php echo $error; ?>
+            </div>
+        <?php endif; ?>
     </main>
 
     <div class="modal fade" id="datePickerModal" tabindex="-1" role="dialog" aria-labelledby="datePickerModalLabel" aria-hidden="true">

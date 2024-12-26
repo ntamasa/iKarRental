@@ -48,9 +48,9 @@
 <body class="bg-dark" style="height: 100dvh;">
     <?php include "navigation.php"; ?>
 
-    <main class="d-flex flex-column justify-content-between align-items-center my-5 h-50">
+    <main class="register-form d-flex flex-column justify-content-between align-items-center my-5 h-50">
         <h1 class="text-primary text-huge m-0">Belépés</h1>
-        <form method="post" novalidate class="w-50 d-flex flex-column">
+        <form method="post" novalidate class="d-flex flex-column">
             <div>
                 <label for="full-name" class="text-primary block mb-0">Teljes név</label>
                 <input type="text" name="full-name" id="full-name" class="rounded w-100 border border-dark px-3 py-2 mb-3" placeholder="Gipsz Jakab">

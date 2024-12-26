@@ -142,3 +142,143 @@ a {
 .w-49 {
   width: 49% !important;
 }
+
+/* mobile first */
+form.filters-form {
+  display: grid;
+  grid-template-columns: 90dvw;
+  grid-template-rows: repeat(5, min-content);
+  justify-items: center;
+
+  row-gap: 1rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-box {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-template-rows: 1fr;
+}
+
+.date {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+
+  row-gap: 1rem;
+}
+
+.car-details {
+  min-height: 75%;
+  margin-bottom: 1rem;
+}
+
+.profile-header {
+  display: grid;
+  grid-template-columns: 100dvw;
+  grid-template-rows: repeat(2, min-content);
+
+  justify-items: center;
+  align-items: center;
+
+  margin: 2rem 0;
+  margin-bottom: 4rem;
+}
+
+.profile-header div {
+  justify-self: start;
+  margin-left: 2rem;
+}
+
+.profile-header img {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+main.profile {
+  margin: 2rem;
+  /* padding: 5rem 12.5rem; padding-top: 0; */
+}
+
+.login-form form,
+.register-form form {
+  width: 75%;
+}
+
+@media screen and (min-width: 768px) {
+  form.filters-form {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, max-content);
+    grid-template-rows: repeat(2, min-content);
+
+    row-gap: 1rem;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .capacity {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .date {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .shifter {
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+  }
+
+  .price-range {
+    grid-column: 3 / 4;
+    grid-row: 2 / -1;
+  }
+
+  .btn-box {
+    grid-column: 4 / -1;
+    grid-row: 1 / -1;
+
+    display: grid;
+    grid-template-columns: max-content;
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: end;
+  }
+
+  .date {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    row-gap: 1rem;
+  }
+
+  .profile-header {
+    display: grid;
+    grid-template-columns: 20rem min-content;
+    grid-template-rows: min-content;
+
+    justify-items: start;
+    margin-left: 2rem;
+  }
+
+  .profile-header img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .car-details {
+    margin-bottom: 0;
+  }
+
+  .login-form form,
+  .register-form form {
+    width: 50%;
+  }
+}
