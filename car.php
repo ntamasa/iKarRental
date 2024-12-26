@@ -20,7 +20,7 @@ $car_id = $_GET['id'] ?? null;
 $car = null;
 
 foreach ($cars as $c) {
-    if ($c['id'] == $car_id) {
+    if ($c['_id'] == $car_id) {
         $car = $c;
         break;
     }
@@ -37,7 +37,7 @@ $price = floor($car["daily_price_huf"]/1000) . '.' . ($car["daily_price_huf"]%10
 $reservation_storage = new JsonStorage('data/reservations.json');
 $reservations = $reservation_storage->all();
 $filtered_reservations = array_filter($reservations, function($reservation) use ($car) {
-    return $reservation['car_id'] == $car['id'];
+    return $reservation['car_id'] == $car['_id'];
 });
 
 // validation of the date picking modal
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'from' => $startDate,
                     'to' => $endDate,
                     'user_email' => $user_email, // Replace with the actual user's email
-                    'car_id' => $car['id']
+                    'car_id' => $car['_id']
                 ];
                 $reservation_storage->insert((object)$new_reservation);
 

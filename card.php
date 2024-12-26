@@ -9,6 +9,11 @@
 
 <div class="rounded d-flex flex-column align-items-center justify-content-center bg-secondary overflow-hidden">
     <div class="img-box">
+        <?php if ($user !== null && $user["role"] === "admin"): ?>
+            <button name="delete" class="btn-del bg-danger text-primary rounded py-1 px-2 border border-dark">Törlés</button>
+            <button name="modify" class="btn-modify bg-lightest text-dark rounded py-1 px-2 border border-dark">Szerkeszt</button>
+        <?php endif; ?>
+        
         <img src="<?php echo $car['image'] ?>" alt="Picture of <?php echo $car["brand"] . $car["model"]?>" class="w-100 img">
         
         <?php if(count($reservation) < 1): ?>
@@ -21,8 +26,14 @@
         <div>
             <p class="text-primary text-medium m-0"><?php echo $car["brand"] ?> <strong><?php echo $car["model"] ?></strong></p>
             <p class="text-primary m-0 d-flex justify-content-between text-small"><?php echo $car["passengers"] ?> férőhely - <?php echo $car["transmission"] == "Manual" ? "manuális" : "automata" ?></p>
+            <?php if ($user !== null && $user["role"] === "admin"): ?>
+                <?php if (!empty($reservation)): ?>
+                    <p class="text-primary text-medium m-0"><?php echo $reservation["user_email"] ?></p>
+                <?php endif; ?>
+            <?php endif; ?>
+
         </div>
-        <a href="car.php?id=<?php echo $car["id"] ?>" class="text-dark bg-primary font-weight-bold rounded-pill px-2 py-1 w-auto inline border border-dark <?php if (count($reservation) > 0): ?>
+        <a href="car.php?id=<?php echo $car["_id"] ?>" class="text-dark bg-primary font-weight-bold rounded-pill px-2 py-1 w-auto inline border border-dark <?php if (count($reservation) > 0): ?>
             hidden
         <?php endif; ?>" style="height: max-content;">Foglalás</a>
     </div>

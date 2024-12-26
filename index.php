@@ -1,7 +1,18 @@
 <?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     require_once 'jsonio.php';
     require_once 'jsonstorage.php';
+    require_once "auth.php";
     
+    $auth = new Auth();
+    $user = null;
+    if ($auth->is_authenticated()) {
+        $user = $_SESSION['user'];
+    }
+
     $storage = new JsonStorage('data/cars.json');
     $cars = $storage->all();   
     
@@ -133,7 +144,7 @@
             <div class="row align-items-center">
                 <?php if(count($filteredCars) > 0): ?>
                     <?php foreach ($filteredCars as $car): ?>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 mb-4">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mb-4">
                             <?php include 'card.php'; ?>
                         </div>
                     <?php endforeach; ?>
