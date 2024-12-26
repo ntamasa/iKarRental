@@ -23,6 +23,16 @@ class JsonStorage
         $this->io->save_to_file($this->filename, $all);
         return $id;
     }
+    public function delete(string $id): bool
+    {
+        $all = $this->all();
+        if (isset($all[$id])) {
+            unset($all[$id]);
+            $this->io->save_to_file($this->filename, $all);
+            return true;
+        }
+        return false;
+    }
     public function filter(callable $fn)
     {
         $all = $this->all();

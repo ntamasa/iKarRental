@@ -5,13 +5,27 @@
 
 
     $price = floor($car["daily_price_huf"]/1000) . '.' . ($car["daily_price_huf"]%1000 == 0 ? '000' : $car["daily_price_huf"]%1000);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['delete']) && isset($_POST['car_id']) && isset($_POST['car_model'])) {
+            $car_id = $_POST['car_id'];
+            $car_model = $_POST['car_model'];
+            echo '<div class="text-primary">' . $car_id . ", " . $car_model . "</div>";
+            $storage->delete($car_id);
+        }
+    }
 ?>
 
 <div class="rounded d-flex flex-column align-items-center justify-content-center bg-secondary overflow-hidden">
     <div class="img-box">
         <?php if ($user !== null && $user["role"] === "admin"): ?>
-            <button name="delete" class="btn-del bg-danger text-primary rounded py-1 px-2 border border-dark">Törlés</button>
-            <button name="modify" class="btn-modify bg-lightest text-dark rounded py-1 px-2 border border-dark">Szerkeszt</button>
+            <form method="post">
+                <input type="hidden" name="car_id" value="<?php echo htmlspecialchars($car["_id"]); ?>">
+                <input type="hidden" name="car_model" value="<?php echo htmlspecialchars($car["model"]); ?>">
+
+                <button name="delete" type="submit" class="btn-del bg-danger text-primary rounded py-1 px-2 border border-dark">Törlés</button>
+                <a href="modify.php?id=<?php echo $car["_id"] ?>" class="btn-modify bg-lightest text-dark rounded py-1 px-2 border border-dark">Szerkeszt</a>
+            </form>
         <?php endif; ?>
         
         <img src="<?php echo $car['image'] ?>" alt="Picture of <?php echo $car["brand"] . $car["model"]?>" class="w-100 img">
