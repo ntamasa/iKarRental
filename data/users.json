@@ -12,5 +12,12 @@
     "password": "$2y$12$an7Q7DpPHxuEBslml6Aq2ur1sIDW9G3lZJimOXHQj05BM6KOiArkK",
     "role": "user",
     "_id": "676ae20346f4d8.15838645"
+  },
+  "676d80415c6889.79116104": {
+    "full_name": "Teszt Elek",
+    "email": "teszt.elek@vicces.hu",
+    "password": "$2y$12$dJd09v8ndpOUiHKAJx.1/OY.Sa2WhBIXE7L15BXgECGE7REM8.f0e",
+    "role": "user",
+    "_id": "676d80415c6889.79116104"
   }
 }

@@ -54,7 +54,7 @@
 
             $filteredCars = array_filter($filteredCars, function ($car) use ($startDate, $endDate, $reservations) {
                 $filtered_reservations = array_filter($reservations, function($reservation) use ($car) {
-                    return $reservation['car_id'] == $car['id'];
+                    return $reservation['car_id'] == $car['_id'];
                 });
                 $isAvailable = true;
                 foreach ($filtered_reservations as $reservation) {
@@ -75,6 +75,16 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['delete']) && isset($_POST['car_id'])) {
             $storage->delete($_POST['car_id']);
+
+            // delete existing reservations for the car
+            $filtered_reservations = array_filter($reservations, function($reservation) {
+                return $reservation['car_id'] == $_POST['car_id'];
+            });
+            if (count($filtered_reservations) > 0) {
+                foreach ($filtered_reservations as $reservation) {
+                    $res_storage->delete($reservation['_id']);
+                }
+            }
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit();
         }
