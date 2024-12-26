@@ -71,6 +71,14 @@
         }
     }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['delete']) && isset($_POST['car_id'])) {
+            $storage->delete($_POST['car_id']);
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        }
+    }
+
     $reservation = [];
     ?>
 

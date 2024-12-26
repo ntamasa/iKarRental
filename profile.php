@@ -46,6 +46,7 @@
         $date_arr_to = explode('-', $reservation['to']);
 
         $filtered_reservations[] = [
+            "_id" => $reservation['_id'],
             'car' => array_values($car)[0],
             'user_email' => $reservation['user_email'],
             'from' => implode('.', array_slice($date_arr_from, 1, 2)),
@@ -85,8 +86,16 @@
                 'daily_price_huf' => intval($price)
             ];
             $storage->insert((object) $new_car);
-            header('Location: profile.php');
+            header('Location: index.php');
             exit;
+        }
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['delete']) && isset($_POST['res_id'])) {
+            $res_storage->delete($_POST['res_id']);
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
         }
     }
 ?>
